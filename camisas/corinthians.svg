@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="200" height="240">
+  <defs>
+    <clipPath id="corBody">
+      <path d="M 70,48 C 52,44 32,50 18,62 L 4,72 L 0,108 L 20,114 L 26,135 L 24,228 L 176,228 L 174,135 L 180,114 L 200,108 L 196,72 L 182,62 C 168,50 148,44 130,48 Q 120,34 100,32 Q 80,34 70,48 Z"/>
+    </clipPath>
+    <linearGradient id="corGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F0F0F0"/>
+    </linearGradient>
+    <linearGradient id="corShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="rgba(0,0,0,0.1)"/>
+      <stop offset="0.15" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="0.85" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,0.1)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White base -->
+  <rect x="0" y="0" width="200" height="240" fill="url(#corGrad)" clip-path="url(#corBody)"/>
+
+  <!-- Black side panels -->
+  <path d="M 26,148 L 24,228 L 50,228 L 52,148 Z" fill="#111111" clip-path="url(#corBody)"/>
+  <path d="M 174,148 L 176,228 L 150,228 L 148,148 Z" fill="#111111" clip-path="url(#corBody)"/>
+
+  <!-- Side shading for depth -->
+  <rect x="0" y="0" width="200" height="240" fill="url(#corShade)" clip-path="url(#corBody)"/>
+
+  <!-- Jersey outline -->
+  <path d="M 70,48 C 52,44 32,50 18,62 L 4,72 L 0,108 L 20,114 L 26,135 L 24,228 L 176,228 L 174,135 L 180,114 L 200,108 L 196,72 L 182,62 C 168,50 148,44 130,48 Q 120,34 100,32 Q 80,34 70,48 Z"
+        fill="none" stroke="#111111" stroke-width="2.5"/>
+
+  <!-- Sleeve hem lines -->
+  <line x1="4" y1="105" x2="20" y2="111" stroke="#111111" stroke-width="1.5"/>
+  <line x1="200" y1="105" x2="180" y2="111" stroke="#111111" stroke-width="1.5"/>
+
+  <!-- Bottom hem -->
+  <line x1="24" y1="224" x2="176" y2="224" stroke="#111111" stroke-width="1.5"/>
+
+  <!-- Black sleeve cuffs -->
+  <path d="M 0,100 L 20,106 L 20,114 L 0,108 Z" fill="#111111" clip-path="url(#corBody)"/>
+  <path d="M 200,100 L 180,106 L 180,114 L 200,108 Z" fill="#111111" clip-path="url(#corBody)"/>
+
+  <!-- V-neck collar (black) -->
+  <path d="M 70,48 Q 80,34 100,32 Q 120,34 130,48 L 116,66 Q 100,80 84,66 Z" fill="#111111"/>
+  <!-- White collar inner trim -->
+  <path d="M 74,50 Q 80,36 100,34 Q 120,36 126,50 L 120,58 Q 100,66 80,58 Z" fill="none" stroke="white" stroke-width="1.2"/>
+
+  <!-- Badge -->
+  <circle cx="100" cy="102" r="20" fill="#111111"/>
+  <circle cx="100" cy="102" r="17" fill="white"/>
+  <circle cx="100" cy="102" r="14" fill="#111111"/>
+  <!-- SCCP badge text -->
+  <text x="100" y="98" text-anchor="middle" font-size="6" font-weight="bold" fill="white" font-family="Arial, sans-serif" letter-spacing="0.5">S.C.</text>
+  <text x="100" y="107" text-anchor="middle" font-size="8.5" font-weight="bold" fill="white" font-family="Arial, sans-serif" letter-spacing="0.5">SCCP</text>
+
+  <!-- Sponsor -->
+  <rect x="72" y="128" width="56" height="13" rx="2" fill="rgba(0,0,0,0.04)"/>
+  <text x="100" y="139" text-anchor="middle" font-size="6.5" fill="rgba(0,0,0,0.35)" font-family="Arial, sans-serif" font-weight="bold" letter-spacing="0.8">PATROCINADOR</text>
+
+  <!-- Number -->
+  <text x="100" y="203" text-anchor="middle" font-size="50" font-weight="bold" fill="rgba(0,0,0,0.1)" font-family="Impact, Arial, sans-serif">10</text>
+</svg>

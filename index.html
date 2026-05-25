@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mantos do Juninho | Camisas de Time</title>
+  <link rel="icon" type="image/jpeg" href="logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="Mantos do Juninho" class="logo-img" />
+        <span class="logo-text">Mantos do <span class="gold">Juninho</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato" class="btn-nav">Comprar Agora</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tag">Camisas Originais e Replicadas</p>
+      <h1>Vista a <span class="gold">Paixão</span> do seu Time</h1>
+      <p class="hero-sub">Os melhores mantos do futebol nacional e internacional com qualidade garantida e entrega rápida.</p>
+      <div class="hero-btns">
+        <a href="#produtos" class="btn-primary">Ver Coleção</a>
+        <a href="#contato" class="btn-secondary">Fale Conosco</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>+500</strong>
+          <span>Camisas Disponíveis</span>
+        </div>
+        <div class="stat">
+          <strong>+1.200</strong>
+          <span>Clientes Satisfeitos</span>
+        </div>
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Entrega Garantida</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="promo-banner">
+        <div class="promo-bg" style="background-image: url('camisas/brasil.jpg');"></div>
+        <div class="promo-overlay"></div>
+        <div class="promo-content">
+          <span class="promo-tag">⚡ Oferta Especial</span>
+          <div class="promo-desconto">10% <span>OFF</span></div>
+          <p class="promo-desc">Na primeira compra usando o código</p>
+          <div class="promo-codigo">JUNINHO10</div>
+          <p class="promo-validade">Válido para todos os mantos da coleção 2025/26</p>
+          <a href="#contato" class="btn-primary promo-btn">Aproveitar Agora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section class="produtos" id="produtos">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nossa <span class="gold">Coleção</span></h2>
+        <p>Camisas dos melhores times do mundo com alta qualidade</p>
+      </div>
+      <div class="filtros">
+        <button class="filtro active" data-filtro="todos">Todos</button>
+        <button class="filtro" data-filtro="nacional">Nacionais</button>
+        <button class="filtro" data-filtro="internacional">Internacionais</button>
+        <button class="filtro" data-filtro="selecao">Seleções</button>
+      </div>
+      <div class="produtos-grid">
+
+        <div class="produto-card" data-categoria="selecao">
+          <div class="produto-badge">Mais Vendida</div>
+          <div class="produto-img"><img src="camisas/brasil.jpg" alt="Camisa Brasil" /></div>
+          <h3>Seleção Brasileira</h3>
+          <p>Camisa oficial da CBF — Amarela e Verde</p>
+          <div class="produto-footer">
+            <span class="preco">R$ 149,90</span>
+            <a href="#contato" class="btn-comprar">Comprar</a>
+          </div>
+        </div>
+
+        <div class="produto-card" data-categoria="nacional">
+          <div class="produto-img"><img src="camisas/flamengo.jpg" alt="Camisa Flamengo" /></div>
+          <h3>Flamengo</h3>
+          <p>Manto Rubro-Negro — Temporada atual</p>
+          <div class="produto-footer">
+            <span class="preco">R$ 139,90</span>
+            <a href="#contato" class="btn-comprar">Comprar</a>
+          </div>
+        </div>
+
+        <div class="produto-card" data-categoria="nacional">
+          <div class="produto-img"><img src="camisas/cruzeiro.jpg" alt="Camisa Cruzeiro" /></div>
+          <h3>Cruzeiro</h3>
+          <p>A Raposa — Camisa oficial home</p>
+          <div class="produto-footer">
+            <span class="preco">R$ 139,90</span>
+            <a href="#contato" class="btn-comprar">Comprar</a>
+          </div>
+        </div>
+
+        <div class="produto-card" data-categoria="internacional">
+          <div class="produto-img"><img src="camisas/realmadrid.jpg" alt="Camisa Real Madrid" /></div>
+          <h3>Real Madrid</h3>
+          <p>Los Blancos — Camisa home 2024/25</p>
+          <div class="produto-footer">
+            <span class="preco">R$ 159,90</span>
+            <a href="#contato" class="btn-comprar">Comprar</a>
+          </div>
+        </div>
+
+        <div class="produto-card" data-categoria="internacional">
+          <div class="produto-badge novo">Novo</div>
+          <div class="produto-img"><img src="camisas/barcelona.jpg" alt="Camisa Barcelona" /></div>
+          <h3>Barcelona</h3>
+          <p>Blaugrana — Camisa home 2024/25</p>
+          <div class="produto-footer">
+            <span class="preco">R$ 159,90</span>
+            <a href="#contato" class="btn-comprar">Comprar</a>
+          </div>
+        </div>
+
+        <div class="produto-card" data-categoria="nacional">
+          <div class="produto-img"><img src="camisas/corinthians.jpg" alt="Camisa Corinthians" /></div>
+          <h3>Corinthians</h3>
+          <p>Timão — Camisa oficial temporada</p>
+          <div class="produto-footer">
+            <span class="preco">R$ 139,90</span>
+            <a href="#contato" class="btn-comprar">Comprar</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="container sobre-grid">
+      <div class="sobre-texto">
+        <h2>Por que escolher a <span class="gold">Mantos do Juninho?</span></h2>
+        <p>Nascemos da paixão pelo futebol. Oferecemos camisas com qualidade premium, atendimento personalizado e os melhores preços do mercado.</p>
+        <ul class="beneficios">
+          <li><span class="check">✔</span> Qualidade garantida em todos os produtos</li>
+          <li><span class="check">✔</span> Entrega para todo o Brasil</li>
+          <li><span class="check">✔</span> Troca fácil e sem burocracia</li>
+          <li><span class="check">✔</span> Atendimento via WhatsApp 7 dias por semana</li>
+          <li><span class="check">✔</span> Parcelamento em até 12x</li>
+        </ul>
+        <a href="#contato" class="btn-primary">Fale com a gente</a>
+      </div>
+      <div class="sobre-cards">
+        <div class="info-card">
+          <div class="info-icon">🚚</div>
+          <h4>Entrega Rápida</h4>
+          <p>Enviamos para qualquer estado do Brasil com rastreio em tempo real.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🏆</div>
+          <h4>Alta Qualidade</h4>
+          <p>Tecidos premium com silk e bordados de alto padrão.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💬</div>
+          <h4>Suporte Dedicado</h4>
+          <p>Nossa equipe está sempre pronta para te ajudar.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">💳</div>
+          <h4>Parcelamento</h4>
+          <p>Pague em até 12x no cartão sem complicação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="container">
+      <div class="section-header">
+        <h2>O que nossos <span class="gold">Clientes</span> dizem</h2>
+        <p>Mais de 1.200 torcedores satisfeitos em todo o Brasil</p>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depo-card">
+          <div class="stars">★★★★★</div>
+          <p>"Recebi minha camisa do Flamengo em 3 dias! Qualidade incrível, vale cada centavo."</p>
+          <div class="depo-autor">
+            <div class="avatar">M</div>
+            <div>
+              <strong>Marcos R.</strong>
+              <span>Rio de Janeiro</span>
+            </div>
+          </div>
+        </div>
+        <div class="depo-card">
+          <div class="stars">★★★★★</div>
+          <p>"Melhor loja de camisas que já comprei! Atendimento top e produto chegou perfeito."</p>
+          <div class="depo-autor">
+            <div class="avatar">A</div>
+            <div>
+              <strong>Ana Paula</strong>
+              <span>São Paulo</span>
+            </div>
+          </div>
+        </div>
+        <div class="depo-card">
+          <div class="stars">★★★★★</div>
+          <p>"Comprei a camisa do Brasil para a Copa e amei! Recomendo para todos os torcedores."</p>
+          <div class="depo-autor">
+            <div class="avatar">J</div>
+            <div>
+              <strong>João Carlos</strong>
+              <span>Belo Horizonte</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO / CTA -->
+  <section class="contato" id="contato">
+    <div class="container contato-inner">
+      <h2>Pronto para vestir o <span class="gold">manto</span> do seu time?</h2>
+      <p>Entre em contato agora pelo WhatsApp e faça seu pedido!</p>
+      <a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20comprar%20uma%20camisa!" class="btn-whatsapp" target="_blank">
+        💬 Chamar no WhatsApp
+      </a>
+      <div class="contato-info">
+        <span>📧 mantasdojuninho@email.com</span>
+        <span>📍 Atendemos todo o Brasil</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="logo">
+        <img src="logo.png" alt="Mantos do Juninho" class="logo-img" />
+        <span class="logo-text">Mantos do <span class="gold">Juninho</span></span>
+      </div>
+      <p class="footer-copy">© 2026 Mantos do Juninho. Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Trocas e Devoluções</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="200" height="240">
+  <defs>
+    <clipPath id="rmBody">
+      <path d="M 70,48 C 52,44 32,50 18,62 L 4,72 L 0,108 L 20,114 L 26,135 L 24,228 L 176,228 L 174,135 L 180,114 L 200,108 L 196,72 L 182,62 C 168,50 148,44 130,48 Q 120,34 100,32 Q 80,34 70,48 Z"/>
+    </clipPath>
+    <linearGradient id="rmGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EFEFEF"/>
+    </linearGradient>
+    <linearGradient id="rmShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="rgba(0,0,0,0.1)"/>
+      <stop offset="0.15" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="0.85" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,0.1)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White base -->
+  <rect x="0" y="0" width="200" height="240" fill="url(#rmGrad)" clip-path="url(#rmBody)"/>
+
+  <!-- Subtle center chest line detail -->
+  <rect x="98" y="32" width="4" height="196" fill="rgba(200,200,200,0.2)" clip-path="url(#rmBody)"/>
+
+  <!-- Side shading for depth -->
+  <rect x="0" y="0" width="200" height="240" fill="url(#rmShade)" clip-path="url(#rmBody)"/>
+
+  <!-- Jersey outline -->
+  <path d="M 70,48 C 52,44 32,50 18,62 L 4,72 L 0,108 L 20,114 L 26,135 L 24,228 L 176,228 L 174,135 L 180,114 L 200,108 L 196,72 L 182,62 C 168,50 148,44 130,48 Q 120,34 100,32 Q 80,34 70,48 Z"
+        fill="none" stroke="#CCCCCC" stroke-width="2"/>
+
+  <!-- Sleeve hem lines -->
+  <line x1="4" y1="105" x2="20" y2="111" stroke="#CCCCCC" stroke-width="1.5"/>
+  <line x1="200" y1="105" x2="180" y2="111" stroke="#CCCCCC" stroke-width="1.5"/>
+
+  <!-- Bottom hem -->
+  <line x1="24" y1="224" x2="176" y2="224" stroke="#CCCCCC" stroke-width="1.5"/>
+
+  <!-- Gold sleeve stripe -->
+  <path d="M 4,78 L 20,76 L 20,80 L 4,82 Z" fill="#D4A017" opacity="0.8"/>
+  <path d="M 196,78 L 180,76 L 180,80 L 196,82 Z" fill="#D4A017" opacity="0.8"/>
+
+  <!-- Purple/navy V-neck collar -->
+  <path d="M 70,48 Q 80,34 100,32 Q 120,34 130,48 L 116,66 Q 100,80 84,66 Z" fill="#00217A"/>
+  <!-- Gold collar trim -->
+  <path d="M 70,48 Q 80,34 100,32 Q 120,34 130,48" fill="none" stroke="#D4A017" stroke-width="2"/>
+  <path d="M 84,66 Q 100,80 116,66" fill="none" stroke="#D4A017" stroke-width="1"/>
+
+  <!-- Badge background -->
+  <circle cx="100" cy="104" r="20" fill="white"/>
+  <circle cx="100" cy="104" r="17" fill="#00217A"/>
+  <!-- Crown at top of badge -->
+  <path d="M 88,94 L 90.5,90 L 93.5,93.5 L 96.5,88 L 100,92 L 103.5,88 L 106.5,93.5 L 109.5,90 L 112,94 L 112,98 L 88,98 Z" fill="#D4A017"/>
+  <!-- RM text -->
+  <text x="100" y="112" text-anchor="middle" font-size="11" font-weight="bold" fill="white" font-family="Georgia, Arial, sans-serif" letter-spacing="1">RM</text>
+  <!-- Small stars -->
+  <text x="88" y="93" text-anchor="middle" font-size="5" fill="#D4A017" font-family="Arial">★</text>
+  <text x="112" y="93" text-anchor="middle" font-size="5" fill="#D4A017" font-family="Arial">★</text>
+
+  <!-- Sponsor -->
+  <rect x="72" y="130" width="56" height="13" rx="2" fill="rgba(0,0,0,0.04)"/>
+  <text x="100" y="141" text-anchor="middle" font-size="6.5" fill="rgba(0,0,0,0.35)" font-family="Arial, sans-serif" font-weight="bold" letter-spacing="0.8">PATROCINADOR</text>
+
+  <!-- Number -->
+  <text x="100" y="203" text-anchor="middle" font-size="50" font-weight="bold" fill="rgba(0,0,0,0.08)" font-family="Impact, Arial, sans-serif">10</text>
+</svg>
