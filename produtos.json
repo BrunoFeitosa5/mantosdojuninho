@@ -68,15 +68,5 @@
     "imagem": "camisas/1779827872942_camisa-do-chelsea.jpg",
     "badge": "Novo",
     "badge_novo": true
-  },
-  {
-    "id": 8,
-    "nome": "Camisa Milan",
-    "descricao": "Camisa oficial Milan Temporada 26",
-    "preco": "149,90",
-    "categoria": "internacional",
-    "imagem": "camisas/1779829241099_camisa-milan.jpg",
-    "badge": "Novo",
-    "badge_novo": true
   }
 ]
