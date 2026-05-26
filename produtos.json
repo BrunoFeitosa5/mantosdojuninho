@@ -58,5 +58,15 @@
     "imagem": "camisas/corinthians.jpg",
     "badge": "",
     "badge_novo": false
+  },
+  {
+    "id": 7,
+    "nome": "Camisa do chelsea",
+    "descricao": "25/26",
+    "preco": "149,90",
+    "categoria": "internacional",
+    "imagem": "camisas/1779827872942_camisa-do-chelsea.jpg",
+    "badge": "Novo",
+    "badge_novo": true
   }
 ]
