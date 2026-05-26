@@ -58,5 +58,15 @@
     "imagem": "camisas/corinthians.jpg",
     "badge": "",
     "badge_novo": false
+  },
+  {
+    "id": 7,
+    "nome": "Milan",
+    "descricao": "Camisa Temporada 25/26",
+    "preco": "149",
+    "categoria": "internacional",
+    "imagem": "camisas/1779829587155_milan.jpg",
+    "badge": "Novo",
+    "badge_novo": true
   }
 ]
