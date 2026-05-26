@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Mantos do Juninho</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #D4A017;
+      --gold-light: #F0C040;
+      --gold-dark: #A07810;
+      --black: #0a0a0a;
+      --black-soft: #141414;
+      --black-card: #1a1a1a;
+      --black-border: #2a2a2a;
+      --white: #ffffff;
+      --white-muted: #cccccc;
+      --red: #ef4444;
+      --green: #22c55e;
+      --radius: 12px;
+    }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── LOGIN ── */
+    #login-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
+    }
+    .login-box {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    .login-box img { width: 72px; height: 72px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 20px; }
+    .login-box h1 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 6px; }
+    .login-box p { color: var(--white-muted); font-size: 0.9rem; margin-bottom: 32px; }
+    .login-box input[type="password"] {
+      width: 100%;
+      background: var(--black-soft);
+      border: 1px solid var(--black-border);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      padding: 14px 18px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .login-box input[type="password"]:focus { border-color: var(--gold); }
+    #login-erro { color: var(--red); font-size: 0.85rem; margin-bottom: 12px; min-height: 20px; }
+
+    /* ── HEADER ── */
+    header {
+      background: rgba(10,10,10,0.98);
+      border-bottom: 1px solid var(--black-border);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--gold); }
+    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; }
+    .logo-text span { color: var(--gold); }
+    .admin-badge {
+      background: rgba(212,160,23,0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 12px;
+    }
+    #btn-logout {
+      background: transparent;
+      border: 1px solid var(--black-border);
+      color: var(--white-muted);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    #btn-logout:hover { border-color: var(--red); color: var(--red); }
+
+    /* ── MAIN ── */
+    main { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    h2 span { color: var(--gold); }
+
+    /* ── FORM ── */
+    .card {
+      background: var(--black-card);
+      border: 1px solid var(--black-border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-row.triple { grid-template-columns: 2fr 1fr 1fr; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .form-group label { font-size: 0.8rem; font-weight: 700; color: var(--white-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--black-soft);
+      border: 1px solid var(--black-border);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      padding: 12px 14px;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--gold); }
+    .form-group select option { background: var(--black-card); }
+
+    /* image upload */
+    .upload-area {
+      border: 2px dashed var(--black-border);
+      border-radius: 10px;
+      padding: 28px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+    .upload-area:hover, .upload-area.dragover { border-color: var(--gold); }
+    .upload-area input[type="file"] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+    }
+    .upload-area .upload-icon { font-size: 2.5rem; margin-bottom: 8px; }
+    .upload-area p { color: var(--white-muted); font-size: 0.85rem; }
+    .upload-area strong { color: var(--gold); }
+    #preview-img {
+      max-height: 140px;
+      max-width: 100%;
+      border-radius: 8px;
+      display: none;
+      margin: 12px auto 0;
+    }
+
+    /* badge select */
+    .badge-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+      width: 100%;
+      margin-top: 8px;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(212,160,23,0.4); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* alert messages */
+    .alert {
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 16px;
+      display: none;
+    }
+    .alert.sucesso { background: rgba(34,197,94,0.12); border: 1px solid var(--green); color: var(--green); }
+    .alert.erro { background: rgba(239,68,68,0.12); border: 1px solid var(--red); color: var(--red); }
+
+    /* ── PRODUCT LIST ── */
+    #lista-produtos { display: flex; flex-direction: column; gap: 12px; }
+    .produto-item {
+      background: var(--black-soft);
+      border: 1px solid var(--black-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: border-color 0.2s;
+    }
+    .produto-item:hover { border-color: #3a3a3a; }
+    .produto-item img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #222;
+      flex-shrink: 0;
+    }
+    .produto-info { flex: 1; }
+    .produto-info strong { display: block; font-size: 0.95rem; margin-bottom: 2px; }
+    .produto-info span { font-size: 0.8rem; color: var(--white-muted); }
+    .produto-preco {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .badge-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .badge-tag.destaque { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--black); }
+    .badge-tag.novo { background: linear-gradient(135deg, #22c55e, #16a34a); color: white; }
+    .btn-excluir {
+      background: transparent;
+      border: 1px solid #333;
+      color: #888;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .btn-excluir:hover { border-color: var(--red); color: var(--red); background: rgba(239,68,68,0.08); }
+
+    /* loading/empty */
+    .estado-lista {
+      text-align: center;
+      padding: 40px;
+      color: var(--white-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ── DEPLOY NOTICE ── */
+    .deploy-notice {
+      background: rgba(212,160,23,0.07);
+      border: 1px solid rgba(212,160,23,0.3);
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .deploy-notice strong { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .form-row, .form-row.triple, .badge-row { grid-template-columns: 1fr; }
+      header { padding: 14px 20px; }
+      .card { padding: 24px 20px; }
+      .produto-preco { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LOGIN ── -->
+<div id="login-overlay">
+  <div class="login-box">
+    <img src="logo.png" alt="Logo" />
+    <h1>Mantos do <span style="color:var(--gold)">Juninho</span></h1>
+    <p>Painel Administrativo</p>
+    <div id="login-erro"></div>
+    <input type="password" id="campo-senha" placeholder="Digite a senha de acesso" autocomplete="current-password" />
+    <button class="btn-primary" id="btn-entrar">Entrar</button>
+  </div>
+</div>
+
+<!-- ── PAINEL ── -->
+<div id="painel" style="display:none">
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
+      <span class="logo-text">Mantos do <span>Juninho</span></span>
+      <span class="admin-badge">Admin</span>
+    </div>
+    <button id="btn-logout">Sair</button>
+  </header>
+
+  <main>
+    <div class="deploy-notice">
+      <span>⚡</span>
+      <span>Após adicionar ou remover uma camisa, o site é atualizado automaticamente em <strong>1 a 2 minutos</strong>.</span>
+    </div>
+
+    <!-- FORM ADICIONAR -->
+    <h2>Adicionar Nova <span>Camisa</span></h2>
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nome do Time / Camisa *</label>
+          <input type="text" id="f-nome" placeholder="Ex: Santos, Bayern de Munique..." />
+        </div>
+        <div class="form-group">
+          <label>Preço *</label>
+          <input type="text" id="f-preco" placeholder="Ex: 149,90" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Descrição *</label>
+        <input type="text" id="f-descricao" placeholder="Ex: Camisa oficial home — Temporada 2025/26" />
+      </div>
+
+      <div class="badge-row">
+        <div class="form-group">
+          <label>Categoria *</label>
+          <select id="f-categoria">
+            <option value="nacional">Nacional</option>
+            <option value="internacional">Internacional</option>
+            <option value="selecao">Seleção</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Destaque (opcional)</label>
+          <select id="f-badge">
+            <option value="">Nenhum</option>
+            <option value="Mais Vendida">Mais Vendida (dourado)</option>
+            <option value="Novo">Novo (verde)</option>
+            <option value="Promoção">Promoção (dourado)</option>
+            <option value="Exclusivo">Exclusivo (dourado)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Foto da Camisa *</label>
+        <div class="upload-area" id="upload-area">
+          <input type="file" id="f-imagem" accept="image/jpeg,image/png,image/webp" />
+          <div class="upload-icon">📷</div>
+          <p><strong>Clique para escolher</strong> ou arraste a foto aqui</p>
+          <p style="margin-top:6px;font-size:0.75rem">JPG, PNG ou WEBP — máximo 4 MB</p>
+          <img id="preview-img" alt="Preview" />
+        </div>
+      </div>
+
+      <button class="btn-primary" id="btn-adicionar">Adicionar Camisa ao Site</button>
+      <div class="alert" id="alert-form"></div>
+    </div>
+
+    <!-- LISTA -->
+    <h2>Camisas <span>Cadastradas</span> <span id="contagem" style="font-size:1.1rem;color:var(--white-muted)"></span></h2>
+    <div class="card" style="padding: 20px">
+      <div id="lista-produtos">
+        <div class="estado-lista">Carregando...</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  const API = '/api/save-product';
+  let senhaAtual = '';
+
+  // ── LOGIN ──
+  document.getElementById('btn-entrar').addEventListener('click', fazerLogin);
+  document.getElementById('campo-senha').addEventListener('keydown', e => {
+    if (e.key === 'Enter') fazerLogin();
+  });
+
+  async function fazerLogin() {
+    const senha = document.getElementById('campo-senha').value.trim();
+    if (!senha) return;
+    const btn = document.getElementById('btn-entrar');
+    const erroEl = document.getElementById('login-erro');
+    btn.disabled = true;
+    btn.textContent = 'Verificando...';
+    erroEl.textContent = '';
+
+    try {
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ senha, acao: 'verificar' }),
+      });
+      if (res.ok) {
+        senhaAtual = senha;
+        sessionStorage.setItem('admin_senha', senha);
+        document.getElementById('login-overlay').style.display = 'none';
+        document.getElementById('painel').style.display = 'block';
+        carregarLista();
+      } else {
+        erroEl.textContent = 'Senha incorreta. Tente novamente.';
+        document.getElementById('campo-senha').value = '';
+      }
+    } catch {
+      erroEl.textContent = 'Erro de conexão. Verifique sua internet.';
+    }
+    btn.disabled = false;
+    btn.textContent = 'Entrar';
+  }
+
+  // Restaurar sessão
+  const senhaSalva = sessionStorage.getItem('admin_senha');
+  if (senhaSalva) {
+    senhaAtual = senhaSalva;
+    document.getElementById('login-overlay').style.display = 'none';
+    document.getElementById('painel').style.display = 'block';
+    carregarLista();
+  }
+
+  // Logout
+  document.getElementById('btn-logout').addEventListener('click', () => {
+    sessionStorage.removeItem('admin_senha');
+    senhaAtual = '';
+    document.getElementById('painel').style.display = 'none';
+    document.getElementById('login-overlay').style.display = 'flex';
+    document.getElementById('campo-senha').value = '';
+  });
+
+  // ── PREVIEW IMAGEM ──
+  document.getElementById('f-imagem').addEventListener('change', function () {
+    const file = this.files[0];
+    const preview = document.getElementById('preview-img');
+    if (file) {
+      const url = URL.createObjectURL(file);
+      preview.src = url;
+      preview.style.display = 'block';
+      document.querySelector('.upload-area .upload-icon').style.display = 'none';
+    } else {
+      preview.style.display = 'none';
+      document.querySelector('.upload-area .upload-icon').style.display = 'block';
+    }
+  });
+
+  // Drag & drop visual
+  const uploadArea = document.getElementById('upload-area');
+  uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('dragover'); });
+  uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover'));
+  uploadArea.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadArea.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      const input = document.getElementById('f-imagem');
+      const dt = new DataTransfer();
+      dt.items.add(file);
+      input.files = dt.files;
+      input.dispatchEvent(new Event('change'));
+    }
+  });
+
+  // ── ADICIONAR ──
+  document.getElementById('btn-adicionar').addEventListener('click', adicionarProduto);
+
+  async function adicionarProduto() {
+    const nome = document.getElementById('f-nome').value.trim();
+    const descricao = document.getElementById('f-descricao').value.trim();
+    const preco = document.getElementById('f-preco').value.trim();
+    const categoria = document.getElementById('f-categoria').value;
+    const badgeVal = document.getElementById('f-badge').value;
+    const imagemFile = document.getElementById('f-imagem').files[0];
+    const alertEl = document.getElementById('alert-form');
+    const btn = document.getElementById('btn-adicionar');
+
+    alertEl.style.display = 'none';
+    alertEl.className = 'alert';
+
+    if (!nome || !descricao || !preco || !imagemFile) {
+      mostrarAlerta(alertEl, 'erro', 'Preencha todos os campos e selecione uma foto.');
+      return;
+    }
+
+    if (imagemFile.size > 4 * 1024 * 1024) {
+      mostrarAlerta(alertEl, 'erro', 'A foto é muito grande. Use uma imagem de até 4 MB.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    try {
+      const base64 = await fileParaBase64(imagemFile);
+      const extensao = imagemFile.name.split('.').pop().toLowerCase();
+
+      const payload = {
+        senha: senhaAtual,
+        acao: 'adicionar',
+        produto: {
+          nome,
+          descricao,
+          preco,
+          categoria,
+          badge: badgeVal,
+          badge_novo: badgeVal === 'Novo',
+        },
+        imagemBase64: base64,
+        imagemExtensao: extensao,
+      };
+
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        mostrarAlerta(alertEl, 'sucesso', `Camisa "${nome}" adicionada! O site será atualizado em 1–2 minutos.`);
+        limparFormulario();
+        setTimeout(carregarLista, 3000);
+      } else if (res.status === 401) {
+        sessionStorage.removeItem('admin_senha');
+        mostrarAlerta(alertEl, 'erro', 'Sessão expirada. Recarregue a página e faça login novamente.');
+      } else {
+        mostrarAlerta(alertEl, 'erro', `Erro: ${data.error || 'Falha ao salvar. Tente novamente.'}`);
+      }
+    } catch {
+      mostrarAlerta(alertEl, 'erro', 'Erro de conexão. Verifique sua internet e tente novamente.');
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Adicionar Camisa ao Site';
+  }
+
+  // ── LISTA ──
+  async function carregarLista() {
+    const lista = document.getElementById('lista-produtos');
+    lista.innerHTML = '<div class="estado-lista">Carregando...</div>';
+    try {
+      const res = await fetch('produtos.json?v=' + Date.now());
+      const produtos = await res.json();
+      document.getElementById('contagem').textContent = `(${produtos.length})`;
+      if (produtos.length === 0) {
+        lista.innerHTML = '<div class="estado-lista">Nenhuma camisa cadastrada ainda.</div>';
+        return;
+      }
+      lista.innerHTML = produtos.map(p => `
+        <div class="produto-item">
+          <img src="${p.imagem}" alt="${p.nome}" onerror="this.src='logo.png'" />
+          <div class="produto-info">
+            <strong>${p.nome}</strong>
+            <span>${p.descricao} · ${p.categoria}</span>
+          </div>
+          ${p.badge ? `<span class="badge-tag ${p.badge_novo ? 'novo' : 'destaque'}">${p.badge}</span>` : ''}
+          <div class="produto-preco">R$ ${p.preco}</div>
+          <button class="btn-excluir" onclick="excluirProduto(${p.id}, '${p.nome.replace(/'/g, "\\'")}')" title="Remover">✕</button>
+        </div>
+      `).join('');
+    } catch {
+      lista.innerHTML = '<div class="estado-lista">Erro ao carregar lista.</div>';
+    }
+  }
+
+  async function excluirProduto(id, nome) {
+    if (!confirm(`Remover a camisa "${nome}" do site?\n\nEssa ação não pode ser desfeita.`)) return;
+
+    try {
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ senha: senhaAtual, acao: 'excluir', produtoId: id }),
+      });
+      if (res.ok) {
+        alert(`Camisa "${nome}" removida! O site será atualizado em 1–2 minutos.`);
+        carregarLista();
+      } else if (res.status === 401) {
+        alert('Sessão expirada. Recarregue a página.');
+      } else {
+        const d = await res.json();
+        alert('Erro ao remover: ' + (d.error || 'Tente novamente.'));
+      }
+    } catch {
+      alert('Erro de conexão. Tente novamente.');
+    }
+  }
+
+  // ── HELPERS ──
+  function fileParaBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function mostrarAlerta(el, tipo, msg) {
+    el.className = `alert ${tipo}`;
+    el.textContent = msg;
+    el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function limparFormulario() {
+    document.getElementById('f-nome').value = '';
+    document.getElementById('f-descricao').value = '';
+    document.getElementById('f-preco').value = '';
+    document.getElementById('f-categoria').value = 'nacional';
+    document.getElementById('f-badge').value = '';
+    document.getElementById('f-imagem').value = '';
+    document.getElementById('preview-img').style.display = 'none';
+    document.querySelector('.upload-area .upload-icon').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

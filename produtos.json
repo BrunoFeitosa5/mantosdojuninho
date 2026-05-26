@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nome": "Seleção Brasileira",
+    "descricao": "Camisa oficial da CBF — Amarela e Verde",
+    "preco": "149,90",
+    "categoria": "selecao",
+    "imagem": "camisas/brasil.jpg",
+    "badge": "Mais Vendida",
+    "badge_novo": false
+  },
+  {
+    "id": 2,
+    "nome": "Flamengo",
+    "descricao": "Manto Rubro-Negro — Temporada atual",
+    "preco": "139,90",
+    "categoria": "nacional",
+    "imagem": "camisas/flamengo.jpg",
+    "badge": "",
+    "badge_novo": false
+  },
+  {
+    "id": 3,
+    "nome": "Cruzeiro",
+    "descricao": "A Raposa — Camisa oficial home",
+    "preco": "139,90",
+    "categoria": "nacional",
+    "imagem": "camisas/cruzeiro.jpg",
+    "badge": "",
+    "badge_novo": false
+  },
+  {
+    "id": 4,
+    "nome": "Real Madrid",
+    "descricao": "Los Blancos — Camisa home 2024/25",
+    "preco": "159,90",
+    "categoria": "internacional",
+    "imagem": "camisas/realmadrid.jpg",
+    "badge": "",
+    "badge_novo": false
+  },
+  {
+    "id": 5,
+    "nome": "Barcelona",
+    "descricao": "Blaugrana — Camisa home 2024/25",
+    "preco": "159,90",
+    "categoria": "internacional",
+    "imagem": "camisas/barcelona.jpg",
+    "badge": "Novo",
+    "badge_novo": true
+  },
+  {
+    "id": 6,
+    "nome": "Corinthians",
+    "descricao": "Timão — Camisa oficial temporada",
+    "preco": "139,90",
+    "categoria": "nacional",
+    "imagem": "camisas/corinthians.jpg",
+    "badge": "",
+    "badge_novo": false
+  }
+]
