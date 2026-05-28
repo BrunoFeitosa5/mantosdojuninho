@@ -3,7 +3,13 @@
   "builds": [
     {
       "src": "lojinha-assistente-AI/app.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "includeFiles": [
+          "produtos.json",
+          "lojinha-assistente-AI/templates/**"
+        ]
+      }
     },
     {
       "src": "api/save-product.js",
@@ -11,8 +17,10 @@
     }
   ],
   "routes": [
-    { "src": "/assistente(.*)", "dest": "/lojinha-assistente-AI/app.py" },
-    { "src": "/api/(.*)", "dest": "/api/save-product.js" },
+    { "src": "/assistente/chat$", "dest": "lojinha-assistente-AI/app.py" },
+    { "src": "/assistente/reset$", "dest": "lojinha-assistente-AI/app.py" },
+    { "src": "/assistente/?$", "dest": "lojinha-assistente-AI/app.py" },
+    { "src": "/api/save-product", "dest": "api/save-product.js" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }

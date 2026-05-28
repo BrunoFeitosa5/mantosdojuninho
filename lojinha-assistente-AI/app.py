@@ -8,12 +8,15 @@ app.secret_key = "mantos-do-juninho-max-secret-key-2024"
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
-PRODUTOS_PATH = os.path.join(os.path.dirname(__file__), "..", "produtos.json")
+PRODUTOS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "produtos.json")
 
 
 def carregar_produtos():
-    with open(PRODUTOS_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(PRODUTOS_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
 
 
 def montar_system_prompt():
@@ -66,7 +69,14 @@ def montar_system_prompt():
     return prompt
 
 
-SYSTEM_PROMPT = montar_system_prompt()
+_system_prompt = None
+
+
+def get_system_prompt():
+    global _system_prompt
+    if _system_prompt is None:
+        _system_prompt = montar_system_prompt()
+    return _system_prompt
 
 
 def chamar_groq(mensagens):
@@ -103,7 +113,7 @@ def chat():
     historico = session["historico"]
     historico.append({"role": "user", "content": mensagem})
 
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}] + historico
+    messages = [{"role": "system", "content": get_system_prompt()}] + historico
 
     try:
         texto = chamar_groq(messages)
