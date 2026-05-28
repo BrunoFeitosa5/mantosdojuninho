@@ -1,12 +1,12 @@
 {
   "version": 2,
   "functions": {
-    "api/max.py": {
+    "api/juninho.py": {
       "includeFiles": "{produtos.json,lojinha-assistente-AI/templates/index.html}"
     }
   },
   "rewrites": [
-    { "source": "/assistente/:path*", "destination": "/api/max" },
-    { "source": "/assistente", "destination": "/api/max" }
+    { "source": "/assistente/:path*", "destination": "/api/juninho" },
+    { "source": "/assistente", "destination": "/api/juninho" }
   ]
 }

@@ -29,7 +29,7 @@ def montar_system_prompt():
             categorias[cat].append(p)
 
     prompt = (
-        "Você é o Max, assistente virtual da loja Mantos do Juninho — "
+        "Você é o Juninho, assistente virtual da loja Mantos do Juninho — "
         "especializada em camisas de futebol autênticas.\n"
         "Atenda os clientes com simpatia, tire dúvidas e ajude nas compras.\n\n"
         "PRODUTOS DISPONÍVEIS:\n"
@@ -133,6 +133,6 @@ def reset():
 
 
 if __name__ == "__main__":
-    print("Max — Assistente Mantos do Juninho")
+    print("Juninho — Assistente Mantos do Juninho")
     print("Acesse: http://localhost:5000")
     app.run(debug=True, port=5000)

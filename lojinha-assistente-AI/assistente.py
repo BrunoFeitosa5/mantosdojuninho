@@ -4,7 +4,7 @@ from groq import Groq
 client = Groq(api_key=os.environ.get("GROQ_API_KEY", ""))
 
 system_prompt = """
-Você é o Max, assistente virtual da Camisetas Brasil.
+Você é o Juninho, assistente virtual da Camisetas Brasil.
 Responda APENAS sobre os produtos da loja.
 
 Produtos disponíveis:
@@ -20,7 +20,7 @@ Se perguntarem algo fora da loja, diga:
 
 historico = [{"role": "system", "content": system_prompt}]
 
-print("Max — Assistente da Camisetas Brasil")
+print("Juninho — Assistente da Camisetas Brasil")
 print("Digite 'sair' para encerrar.\n")
 
 while True:
@@ -40,4 +40,4 @@ while True:
     texto = resposta.choices[0].message.content
     historico.append({"role": "assistant", "content": texto})
     
-    print(f"\nMax: {texto}\n")
+    print(f"\nJuninho: {texto}\n")
