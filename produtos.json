@@ -68,5 +68,15 @@
     "imagem": "camisas/1779938629101_selecao-brasileira-2026-amarel.jpeg",
     "badge": "Mais Vendida",
     "badge_novo": false
+  },
+  {
+    "id": 10,
+    "nome": "Seleção brasileira 2026 - amarela torcedor (nacional)",
+    "descricao": "R$ 60,00 atacado 12 peças",
+    "preco": "R$ 100,00 Varejo",
+    "categoria": "selecao",
+    "imagem": "camisas/1779938774549_selecao-brasileira-2026-amarel.jpeg",
+    "badge": "Exclusivo",
+    "badge_novo": false
   }
 ]
