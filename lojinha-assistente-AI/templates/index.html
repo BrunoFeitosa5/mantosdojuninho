@@ -108,7 +108,6 @@
     }
 
     .btn-reset {
-      margin-left: auto;
       background: none;
       border: 1px solid #333;
       color: #666;
@@ -120,6 +119,24 @@
       white-space: nowrap;
     }
     .btn-reset:hover { border-color: #D4A017; color: #D4A017; }
+
+    .btn-voltar {
+      margin-left: auto;
+      background: none;
+      border: 1px solid #333;
+      color: #666;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .btn-voltar:hover { border-color: #D4A017; color: #D4A017; }
 
     /* ── Messages ── */
     .chat-messages {
@@ -392,6 +409,7 @@
       <p><span class="status-dot"></span>Assistente Mantos do Juninho</p>
     </div>
     <button class="btn-reset" onclick="resetarChat()">🔄 Nova conversa</button>
+    <a href="/" class="btn-voltar">← Ver camisas</a>
   </div>
 
   <!-- Messages -->
