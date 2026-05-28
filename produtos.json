@@ -68,15 +68,5 @@
     "imagem": "camisas/1779829633086_chelsea.jpg",
     "badge": "Novo",
     "badge_novo": true
-  },
-  {
-    "id": 9,
-    "nome": "Roma",
-    "descricao": "Camisa Roma Temporada 26",
-    "preco": "159,90",
-    "categoria": "internacional",
-    "imagem": "camisas/1779834302490_roma.jpg",
-    "badge": "Novo",
-    "badge_novo": true
   }
 ]
