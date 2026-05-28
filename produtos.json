@@ -78,5 +78,15 @@
     "imagem": "camisas/1779938774549_selecao-brasileira-2026-amarel.jpeg",
     "badge": "Exclusivo",
     "badge_novo": false
+  },
+  {
+    "id": 11,
+    "nome": "São Paulo",
+    "descricao": "Temporada 25/26",
+    "preco": "149,99",
+    "categoria": "nacional",
+    "imagem": "camisas/1779987854212_sao-paulo.jpg",
+    "badge": "Promoção",
+    "badge_novo": false
   }
 ]
