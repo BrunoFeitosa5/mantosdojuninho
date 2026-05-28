@@ -58,5 +58,15 @@
     "imagem": "camisas/1779829633086_chelsea.jpg",
     "badge": "Novo",
     "badge_novo": true
+  },
+  {
+    "id": 9,
+    "nome": "Seleção brasileira 2026 - amarela Jogador",
+    "descricao": "R$ 60,00 Atacado 12 peças",
+    "preco": "100,00$ Varejo",
+    "categoria": "selecao",
+    "imagem": "camisas/1779938629101_selecao-brasileira-2026-amarel.jpeg",
+    "badge": "Mais Vendida",
+    "badge_novo": false
   }
 ]
