@@ -50,16 +50,6 @@
     "badge_novo": true
   },
   {
-    "id": 6,
-    "nome": "Corinthians",
-    "descricao": "Timão — Camisa oficial temporada",
-    "preco": "139,90",
-    "categoria": "nacional",
-    "imagem": "camisas/corinthians.jpg",
-    "badge": "",
-    "badge_novo": false
-  },
-  {
     "id": 8,
     "nome": "Chelsea",
     "descricao": "Camisa Temporada 25/26",
