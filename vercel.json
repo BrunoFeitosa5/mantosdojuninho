@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "lojinha-assistente-AI/app.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "api/save-product.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/assistente(.*)", "dest": "/lojinha-assistente-AI/app.py" },
+    { "src": "/api/(.*)", "dest": "/api/save-product.js" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
