@@ -88,5 +88,15 @@
     "imagem": "camisas/1779987854212_sao-paulo.jpg",
     "badge": "Promoção",
     "badge_novo": false
+  },
+  {
+    "id": 12,
+    "nome": "PALMEIRAS",
+    "descricao": "TEMPORADA 2026",
+    "preco": "149,90",
+    "categoria": "nacional",
+    "imagem": "camisas/1780085937354_palmeiras.jpg",
+    "badge": "Novo",
+    "badge_novo": true
   }
 ]
